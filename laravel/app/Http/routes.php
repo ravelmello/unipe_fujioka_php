@@ -18,3 +18,7 @@ Route::post('create','UserController@create');
 Route::get('show','UserController@show');
 Route::get('edit/{id}', 'UserController@edit');
 Route::post('update','UserController@update');
+Route::get('listedit','UserController@listedit');
+Route::get('deleteList','UserController@deleteList');
+Route::get('delete','UserController@delete');
+Route::get('destroy/{id}','UserController@destroy');

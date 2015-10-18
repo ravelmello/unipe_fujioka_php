@@ -90,7 +90,7 @@ class UserController extends Controller
         $user->save($input);
 
 
-        return view('index');
+        return redirect('show');
 
 
     }
@@ -116,11 +116,19 @@ class UserController extends Controller
 
     }
 
+    public function listedit()
+    {
+      $users = DB::table('pos_usuario')->get();
+      return view('listedit', ['users'=>$users]);
 
-    public function delete($id){
+    }
 
+    public function deleteList(){
 
-      return view('delete');
+      $users = DB::table('pos_usuario')->get();
+
+      return view('deleteList', ['users'=>$users]);
+
     }
 
     /**
@@ -160,15 +168,23 @@ class UserController extends Controller
         $user['phone_number'] = $input['fone'];
         $user['cep'] = $input['cep'];
 
-        $query = DB::table('pos_usuario')
+       DB::table('pos_usuario')
                       ->where('id','=', $input['id'])
                       ->update($user);
 
 
-        return redirect('show');
+        return redirect('listedit');
 
 
+    }
 
+    public function delete($id)
+    {
+      $edit = DB::table('pos_usuario')
+                      ->where('id', '=',$id)
+                      ->get();
+
+      return view('delete', ['user'=>$edit[0]]);
 
     }
 
@@ -181,6 +197,14 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+
+        $destroy = DB::table('pos_usuario')
+                        ->where('id', '=', $id)
+                        ->delete();
+
+
+        return redirect('deleteList');
+
 
 
     }

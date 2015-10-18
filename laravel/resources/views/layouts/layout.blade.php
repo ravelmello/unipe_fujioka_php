@@ -51,8 +51,8 @@
             <div class="list-group tab-content">
                 <a class="list-group-item" href="{{url('cadastro')}}">Cadastrar usuários</a>
                 <a class="list-group-item" href="{{url('show')}}">Listar usuários</a>
-                <a class="list-group-item" href="{{url('delete')}}">Deletar usuários</a>
-                <a class="list-group-item" href="{{url('show')}}">Editar usuários</a>
+                <a class="list-group-item" href="{{url('deleteList')}}">Deletar usuários</a>
+                <a class="list-group-item" href="{{url('listedit')}}">Editar usuários</a>
             </div>
         </div>
 
