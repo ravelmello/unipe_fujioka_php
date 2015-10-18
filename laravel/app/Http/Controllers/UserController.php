@@ -198,7 +198,7 @@ class UserController extends Controller
     {
         //
 
-        $destroy = DB::table('pos_usuario')
+      DB::table('pos_usuario')
                         ->where('id', '=', $id)
                         ->delete();
 
