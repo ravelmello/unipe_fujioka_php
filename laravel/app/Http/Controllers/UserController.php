@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Auth;
 use DB;
 use App\User;
 
@@ -162,7 +160,7 @@ class UserController extends Controller
         $user['phone_number'] = $input['fone'];
         $user['cep'] = $input['cep'];
 
-        $update = DB::table('pos_usuario')
+        $query = DB::table('pos_usuario')
                       ->where('id','=', $input['id'])
                       ->update($user);
 
